@@ -44,7 +44,7 @@ const Projects = () => {
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12">
           <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-4 neon-text">
-            PROJECT SHOWCASE
+            PROJECTS
           </h2>
           <p className="font-rajdhani text-xl text-gaming-text-muted max-w-2xl mx-auto">
             Explore my latest projects and see how I bring innovative ideas to life

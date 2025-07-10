@@ -101,10 +101,11 @@ const Navigation = () => {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`scroll-to-top ${showScrollTop ? 'visible' : ''}`}
+        className={`fixed bottom-6 right-6 z-50 p-3 rounded-full bg-primary text-white shadow-lg transition-opacity duration-300 hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-primary/50 ${showScrollTop ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         aria-label="Scroll to top"
+        style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.2)' }}
       >
-        <ChevronUp size={20} />
+        <ChevronUp size={28} color="black" />
       </button>
     </>
   );
