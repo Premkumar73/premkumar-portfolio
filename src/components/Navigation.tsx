@@ -28,7 +28,9 @@ const Navigation = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = document.querySelector('nav')?.clientHeight || 0;
+      const y = element.getBoundingClientRect().top + window.pageYOffset - navHeight - 3; // 3px extra margin
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
     setIsMenuOpen(false);
   };
@@ -46,9 +48,13 @@ const Navigation = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Brand */}
-            <div className="font-orbitron font-bold text-xl neon-text">
-              PORTFOLIO
-            </div>
+            <button
+              className="font-orbitron font-bold text-xl neon-text bg-transparent border-none outline-none cursor-pointer"
+              onClick={() => scrollToSection('#home')}
+              style={{ background: 'none' }}
+            >
+              PREM
+            </button>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">

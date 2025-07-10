@@ -1,6 +1,11 @@
 import { useState } from 'react';
-import { Mail, Phone, Github, Linkedin, Send, MapPin, MessageSquare } from 'lucide-react';
+import { Mail, Phone, Github, Linkedin, Send, MapPin } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import emailjs from 'emailjs-com';
+
+const SERVICE_ID = 'service_35m3fim';
+const TEMPLATE_ID = 'template_sil52xc';
+const USER_ID = 'qabJvJryx6mRL1KqC';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,17 +24,39 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: 'All fields are required!',
+        description: 'Please fill in your name, email, and message.',
+        variant: 'destructive',
+      });
+      return;
+    }
     setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    toast({
-      title: "Message Sent Successfully!",
-      description: "Thanks for reaching out. I'll get back to you soon!",
-    });
-
-    setFormData({ name: '', email: '', message: '' });
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          subject: `Message from ${formData.name}`
+        },
+        USER_ID
+      );
+      toast({
+        title: 'Message Sent Successfully!',
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      toast({
+        title: 'Failed to send message',
+        description: 'There was an error sending your message. Please try again later.',
+        variant: 'destructive',
+      });
+    }
     setIsSubmitting(false);
   };
 
@@ -37,20 +64,20 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'john.doe@gamedev.com',
-      href: 'mailto:john.doe@gamedev.com'
+      value: 'premkumarcse24@gmail.com',
+      href: 'mailto:premkumarcse24@gmail.com'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      value: '+91 96264 98190',
+      href: 'tel:+919626498190'
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
-      href: 'https://maps.google.com/?q=San+Francisco,CA'
+      value: 'Sivaganga, Tamil Nadu',
+      href: 'https://www.google.com/maps/place/Sivaganga,+Tamil+Nadu+630561'
     }
   ];
 
@@ -58,25 +85,19 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com/yourusername',
+      href: 'https://github.com/Premkumar73',
       color: 'hover:text-primary'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/yourusername',
+      href: 'https://www.linkedin.com/in/premkumar-k-cse/',
       color: 'hover:text-secondary'
-    },
-    {
-      icon: MessageSquare,
-      label: 'Discord',
-      href: 'https://discord.com/users/yourusername',
-      color: 'hover:text-accent'
     }
   ];
 
   return (
-    <section id="contact" className="py-20 relative">
+    <section id="contact" className="py-12 md:py-16 relative">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full">
@@ -97,12 +118,12 @@ const Contact = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-12">
           <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-4 neon-text">
-            INITIATE CONTACT
+            CONTACT
           </h2>
           <p className="font-rajdhani text-xl text-gaming-text-muted max-w-2xl mx-auto">
-            Ready to level up your project? Let's connect and build something amazing together!
+            Feel free to contact me for opportunities, collaborations, or any queries!
           </p>
         </div>
 
@@ -114,7 +135,7 @@ const Contact = () => {
                 SEND MESSAGE
               </h3>
               <p className="font-rajdhani text-gaming-text-muted">
-                Drop me a line and I'll get back to you as soon as possible!
+                Fill out the form and I'll get back to you as soon as possible.
               </p>
             </div>
 
@@ -124,7 +145,7 @@ const Contact = () => {
                   htmlFor="name" 
                   className="block font-rajdhani font-semibold text-gaming-text mb-2"
                 >
-                  Player Name
+                  Name
                 </label>
                 <input
                   type="text"
@@ -162,7 +183,7 @@ const Contact = () => {
                   htmlFor="message" 
                   className="block font-rajdhani font-semibold text-gaming-text mb-2"
                 >
-                  Quest Details
+                  Message
                 </label>
                 <textarea
                   id="message"
@@ -172,7 +193,7 @@ const Contact = () => {
                   required
                   rows={6}
                   className="w-full px-4 py-3 bg-input border border-gaming-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 font-rajdhani text-gaming-text resize-none"
-                  placeholder="Tell me about your project or ask any questions..."
+                  placeholder="Type your message here..."
                 />
               </div>
 
@@ -235,7 +256,7 @@ const Contact = () => {
                 SOCIAL NETWORKS
               </h3>
               
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
@@ -251,22 +272,6 @@ const Contact = () => {
                   </a>
                 ))}
               </div>
-            </div>
-
-            {/* Quick Response Promise */}
-            <div className="gaming-card bg-gradient-gaming-accent text-accent-foreground">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                  <MessageSquare className="w-6 h-6" />
-                </div>
-                <h3 className="font-orbitron font-bold text-xl">
-                  QUICK RESPONSE
-                </h3>
-              </div>
-              <p className="font-rajdhani text-lg leading-relaxed">
-                I typically respond within 24 hours. For urgent projects, 
-                feel free to reach out via phone or social media for faster communication!
-              </p>
             </div>
           </div>
         </div>

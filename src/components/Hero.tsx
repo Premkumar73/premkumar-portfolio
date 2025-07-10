@@ -20,7 +20,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden py-12 md:py-16">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary rounded-full filter blur-3xl animate-pulse"></div>
@@ -46,18 +46,18 @@ const Hero = () => {
           </div>
 
           {/* Name */}
-          <h1 className="font-orbitron font-black text-5xl md:text-7xl mb-4 neon-text neon-flicker">
-            JOHN DOE
+          <h1 className="font-orbitron font-black text-5xl md:text-7xl mb-4 neon-text ">
+            Premkumar K
           </h1>
 
           {/* Animated Title */}
-          <div className="font-rajdhani font-semibold text-2xl md:text-3xl mb-8 text-gaming-text min-h-[3rem]">
+          <div className="font-rajdhani font-semibold text-2xl md:text-3xl mb-6 md:mb-8 text-gaming-text min-h-[3rem]">
             <span className="neon-text-secondary">{displayText}</span>
             <span className="animate-pulse">|</span>
           </div>
 
           {/* Career Objective */}
-          <div className="gaming-card max-w-3xl mx-auto mb-8">
+          <div className="gaming-card max-w-3xl mx-auto mb-6 md:mb-8">
             <p className="font-rajdhani text-lg md:text-xl leading-relaxed text-gaming-text-muted">
               Passionate and innovative Full Stack Developer with expertise in modern web technologies. 
               I create immersive digital experiences that blend cutting-edge functionality with 
@@ -81,21 +81,6 @@ const Hero = () => {
             >
               Get In Touch
             </button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-            {[
-              { label: 'Projects', value: '25+' },
-              { label: 'Experience', value: '3+ Years' },
-              { label: 'Technologies', value: '15+' },
-              { label: 'Coffee Cups', value: '1000+' }
-            ].map((stat, index) => (
-              <div key={stat.label} className="gaming-card text-center">
-                <div className="font-orbitron font-bold text-2xl neon-text-accent">{stat.value}</div>
-                <div className="font-rajdhani text-gaming-text-muted">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
