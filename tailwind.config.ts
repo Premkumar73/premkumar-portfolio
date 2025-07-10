@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				orbitron: ['Orbitron', 'monospace'],
+				rajdhani: ['Rajdhani', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -26,11 +30,13 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					foreground: 'hsl(var(--secondary-foreground))',
+					glow: 'hsl(var(--secondary-glow))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -42,7 +48,8 @@ export default {
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					foreground: 'hsl(var(--accent-foreground))',
+					glow: 'hsl(var(--accent-glow))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -51,6 +58,21 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				gaming: {
+					bg: 'hsl(var(--gaming-bg))',
+					surface: 'hsl(var(--gaming-surface))',
+					'surface-hover': 'hsl(var(--gaming-surface-hover))',
+					border: 'hsl(var(--gaming-border))',
+					text: 'hsl(var(--gaming-text))',
+					'text-muted': 'hsl(var(--gaming-text-muted))'
+				},
+				neon: {
+					cyan: 'hsl(var(--neon-cyan))',
+					purple: 'hsl(var(--neon-purple))',
+					yellow: 'hsl(var(--neon-yellow))',
+					pink: 'hsl(var(--neon-pink))',
+					green: 'hsl(var(--neon-green))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -62,6 +84,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-gaming-primary': 'var(--gradient-gaming-primary)',
+				'gradient-gaming-secondary': 'var(--gradient-gaming-secondary)',
+				'gradient-gaming-accent': 'var(--gradient-gaming-accent)',
+				'gradient-gaming-dark': 'var(--gradient-gaming-dark)'
+			},
+			boxShadow: {
+				'neon': 'var(--shadow-neon)',
+				'neon-purple': 'var(--shadow-neon-purple)',
+				'neon-yellow': 'var(--shadow-neon-yellow)',
+				'gaming-card': 'var(--shadow-gaming-card)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
