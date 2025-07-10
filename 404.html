@@ -20,6 +20,12 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
+    <script>
+      // Redirect to hash route if not already present
+      if (location.pathname === '/premkumar-portfolio/' && !location.hash) {
+        location.replace('/premkumar-portfolio/#/');
+      }
+    </script>
   </body>
 </html>
