@@ -210,7 +210,7 @@
   }
 
   .project-card {
-    @apply gaming-card group cursor-pointer overflow-hidden;
+    @apply gaming-card cursor-pointer overflow-hidden;
     position: relative;
   }
 
