@@ -7,7 +7,7 @@ import Contact from '@/components/Contact';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-background">
       <Navigation />
       <main>
         <Hero />
@@ -16,16 +16,6 @@ const Index = () => {
         <Education />
         <Contact />
       </main>
-      
-      {/* Footer */}
-      <footer className="border-t border-gaming-border bg-gaming-surface py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="font-rajdhani text-gaming-text-muted">
-            © 2024 John Doe. Crafted with{' '}
-            <span className="neon-text-accent">⚡</span> and passion for gaming aesthetics.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };

@@ -97,7 +97,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-12 md:py-16 relative">
+    <section id="contact" className="py-2 md:py-3 relative">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full">
